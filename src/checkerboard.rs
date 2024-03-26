@@ -35,10 +35,18 @@ impl Checkerboard {
 	pub fn get_color(&self, position: Vec2, debug: bool) -> Color {
 		let scaled_pos = position / self.scale;
 		if debug {
-			if (scaled_pos.x as i32 + scaled_pos.y as i32) % 2 == 0 { self.debug_primary } else { self.debug_secondary }
+			if (scaled_pos.x as i32 + scaled_pos.y as i32) % 2 == 0 {
+				self.debug_primary
+			}
+			else {
+				self.debug_secondary
+			}
+		}
+		else if (scaled_pos.x as i32 + scaled_pos.y as i32) % 2 == 0 {
+			self.primary
 		}
 		else {
-			if (scaled_pos.x as i32 + scaled_pos.y as i32) % 2 == 0 { self.primary } else {self.secondary}
+			self.secondary
 		}
 	}
 }

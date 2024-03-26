@@ -89,7 +89,7 @@ impl Car {
 		// sprite rotate radians(delta_orientation)
 		self.orientation += delta_orientation;
 		let velocity = (left_motor + right_motor) / 2.0;
-		self.position = self.position + (Vec2::new(f32::cos(self.orientation), f32::sin(self.orientation)) * velocity * delta_time);
+		self.position += Vec2::new(f32::cos(self.orientation), f32::sin(self.orientation)) * velocity * delta_time;
 	}
 
 	pub fn draw(&mut self, checkerboard: &Checkerboard, ctx: &mut Context, canvas: &mut Canvas) {
